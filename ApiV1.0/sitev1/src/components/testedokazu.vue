@@ -1,31 +1,28 @@
 <template>
-
   <div>
-    <h1>{{ mensagem }}</h1>
-    <button @click="buscar">Buscar API</button>
+    <h1>{{Mensagen}}</h1>
+    <Button @click = "buscar">Buscar na api</Button>
   </div>
-
 </template>
 
 <script>
 export default{
   data(){
     return{
-      mensagem:"Click no button"
+      Mensagen:" click no buttonnnn"
     }
-  },
-  methods:{
+  }, methods: {
     async buscar(){
-      try{
+      try {
         const resposta = await fetch("http://localhost:8080/")
         const data = await resposta.json()
-        this.mensagem = data.mensagem
-      }catch(e){
+        this.Mensagen = data.Mensagen
+        
+      } catch (e) {
         console.error(e)
-        this.mensagem = "Erro de requisição"
+        this.Mensagen = "Erro de requisição"
       }
     }
   }
 }
-
-</script>
+</script>     

@@ -22,6 +22,6 @@ $conn = new mysqli("db","root","root","meu_banco");
 if ($conn->connect_error){
     echo json_encode(["mensagem" => "Erro: ". $conn->connect_error]);
 }else{
-    echo json_encode(["mensagem" => "Api conectada porra"]);   
+    echo json_encode(["mensagem" => "Api conectada porra:  " . 2 . 4]);   
 }
 ?>  
