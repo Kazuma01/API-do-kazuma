@@ -1,41 +1,38 @@
-<template>
-    <div>
-        <h1>tabela de dados</h1>
-        <table border = "1">
-            <thead>
-                <tr>
-                    <th>Palavas</th>
-                    <th>Numeros</th>
-                </tr>
-            </thead>    
-            <tbody>
-                <tr v-for="(item,index) in ListaDDB" :key="index">
-                    <td>{{ item.Palavas }}</td>
-                    <td>{{ item.Numeros }}</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <button @click="ADD_dados">ADDress</button>
-    </div>
-    
-</template>
 <script>
 export default{
     data(){
         return{
-            ListaDDB: [
-                { Palavas: "kazuma", Numeros: 265543},
-                { Palavas: "kazuma", Numeros: 123678},
-                { Palavas: "kazuma", Numeros: 126583},
-                { Palavas: "kazuma", Numeros: 125123}
-            ]
+            text: "KazuArch",
+            Text_com_red: "text_red",
+            contar: 0,
+            texto: ""
         }
     },
-    methods: {
-        ADD_dados(){
-            this.ListaDDB.push({Palavas: "Kazua", Numeros: 123244})
-        }
+    methods:{
+        Update(){
+            this.contar++,
+            this.text = "Arch Linux",
+            this.Text_com_red = "text_blue"
+        },
     }
 }
+
 </script>
+
+<template>
+    <div>
+        <h1 :class="Text_com_red">{{ text }}</h1>
+        <button @click="Update">mudou? {{ contar }}</button><br>
+        <input v-model="texto" placeholder="Digite aqui">
+        <p>{{ texto}}</p>
+    </div>
+</template>
+
+<style>
+.text_red{
+    color: blue;
+}
+.text_blue{
+    color: red;
+}
+</style>
