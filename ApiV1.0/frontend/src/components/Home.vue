@@ -3,39 +3,47 @@
 <!-- https://pt.vuejs.org/tutorial/#step-7 -->
 
 <template>
-    <div>
-        <form @submit.prevent="Newtext">
-            <input type="text" v-model="Text" required placeholder="Digite aqui">
-            <button>Salva</button>
-        </form>
-        <ul>
-            <li v-for="simples in completo" :key="simples.id">
-                <input type="checkbox" v-model="simples.dote">
-                <span :class="{dote: simples.dote}">{{ simples.text }}</span>
-                <button @click="Removeritem(simples)">Remover</button>
-            </li>
-        </ul>
-    </div>
+    <form @submit.prevent="NewItList">
+        <input type="text" v-model="Newitem" placeholder="ADD um novo texto"> <br>
+        <button>Add novo item</button>
+    </form>
+    <ul>
+        <li v-for="item in itemsList" :key="item.id">
+            <input type="checkbox" v-model="item.done">
+            <span :class="done:item.done">{{ item.text }}</span>
+            <button @click="RemverItemList(item)">X</button>
+        </li>
+    </ul>
+    <button @click="hideAllText = !hideAllText">
+        {{ hideAllText ? "Text all" : "Text Not All" }}
+    </button>
 </template>
 
 <script>
-let id = 0;
+import { Text } from 'vue';
+
+let id = 1
 export default{
     data(){
-        return{
-            Text: "",
-            completo: [
-                {id: id++,text: "primiro texto"}
-            ]
+        return{ 
+            Newitem: " ",
+            itemsList: []
         }
-    },methods: {
-        Newtext(){
-            this.completo.push({id: id++, text: this.Text}),
-            this.Text = "";
+    },
+    methods:{
+        NewItList(){
+            this.itemsList.push({id: id++,text: this.Newitem})
+            this.Newitem = ""
         },
-        Removeritem(simples){
-            this.completo = this.completo.filter((t) => t != simples)
+        RemverItemList(item){
+            this.itemsList = this.itemsList.filter((t) => t != item)
         }
     }
 }
 </script>
+
+<style>
+.done{
+    text-decoration: line-through;
+}
+</style>
