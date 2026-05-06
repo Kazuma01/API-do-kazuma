@@ -4,37 +4,48 @@
 
 <template>
     <form @submit.prevent="NewItList">
-        <input type="text" v-model="Newitem" placeholder="ADD um novo texto"> <br>
+        <input v-model="Newitem" required placeholder="ADD um novo texto"> <br>
         <button>Add novo item</button>
     </form>
     <ul>
-        <li v-for="item in itemsList" :key="item.id">
+        <li v-for="item in updatefortext" :key="item.id">
             <input type="checkbox" v-model="item.done">
-            <span :class="done:item.done">{{ item.text }}</span>
+            <span :class="{ done: item.done }">{{ item.text }}</span>
             <button @click="RemverItemList(item)">X</button>
         </li>
     </ul>
     <button @click="hideAllText = !hideAllText">
-        {{ hideAllText ? "Text all" : "Text Not All" }}
+        {{ hideAllText ? "Text Not all" : "Text All" }}
     </button>
 </template>
 
 <script>
-import { Text } from 'vue';
 
-let id = 1
+let id = 0;
+
+
 export default{
     data(){
         return{ 
             Newitem: " ",
+            hideAllText: false,
             itemsList: []
         }
     },
+    computed:{
+        updatefortext(){
+            return this.hideAllText 
+            ? this.itemsList.filter((t) => !t.done)
+            : this.itemsList
+        }
+    }
+    ,
     methods:{
-        NewItList(){
-            this.itemsList.push({id: id++,text: this.Newitem})
-            this.Newitem = ""
-        },
+        NewItList(){if(this.Newitem !== " "){
+            this.itemsList.push({id: id++,text: this.Newitem, done: false})
+        }    
+        this.Newitem = ""
+    },
         RemverItemList(item){
             this.itemsList = this.itemsList.filter((t) => t != item)
         }
