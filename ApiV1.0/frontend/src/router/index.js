@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from "../components/Home.vue";
 import Aperte2 from "../components/Aperte2.vue";
+import page from "../components/page.vue";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
     path: '/Aperte2',
     component: Aperte2
   },
+  {
+    path: "/page",
+    component: page
+  }
 ];
 
 
