@@ -15,7 +15,7 @@ const routes = [
   {
     path: "/page",
     component: page
-  }
+  },
 ];
 
 
