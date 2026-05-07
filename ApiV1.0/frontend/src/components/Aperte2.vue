@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>Todo Id{{ todoid }}</p><br>
+        <p>Todo Id: {{ todoid }}</p><br>
         <button @click="todoid++" :disabled="!todoData">fetch next todo</button><br>
         <p v-if="!todoData">login.....</p>
         <pre v-else>{{ todoData }}</pre>
@@ -17,7 +17,7 @@ export default{
     methods:{
         async fetchData(){
             this.todoData = null;
-            const res = await this.fetchData(`https://jsonplaceholder.typicode.com/todos/${this.todoId}`)
+            const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${this.todoid}`)
             this.todoData = await res.json()
         }
     },
@@ -25,7 +25,7 @@ export default{
         this.fetchData()
     },
     watch:{
-        todoData(){
+        todoid(){
             this.fetchData()
         }
     }
