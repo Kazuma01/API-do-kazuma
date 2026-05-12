@@ -5,11 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 Route::get("/users", [UserController::class,"index"]);
-Route::post("/users", [UserController::class,"store"]);
+Route::post("/user", [UserController::class,"store"]);
 Route::delete("/users/{id}", [UserController::class,"destroy"]);
 
 Route::get("/test", function(){
-    return "Ok" ;
+//     DB::table('pessoas')->insert([
+//     'name' => 'Kazuma',
+//     'idade' => 18
+// ]);
+    return "Inserido com Sucesso";
 });
 
 

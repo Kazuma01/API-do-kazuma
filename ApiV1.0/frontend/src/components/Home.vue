@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="Dadoslist">
             <input type="text" v-model="Name" required placeholder="Digite seu nome">
-            <input type="text" v-model="Idade" required placeholder="Digite sua idade">
+            <input type="number" v-model="Idade" required placeholder="Digite sua idade">
             <button type="submit">Enviar</button>
         </form> <br>
 
@@ -24,7 +24,7 @@ export default{
             }
             this.Name = "";
             this.Idade = "";
-                console.log(data);
+            console.log(data);
 
         }
     }

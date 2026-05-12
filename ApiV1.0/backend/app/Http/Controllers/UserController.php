@@ -6,16 +6,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller{
+    
     public function index(){
         return User::all();
     }
+
     public function store(Request $request){
         return User::create([
             "name" => $request->name,
-            "email" => $request->email,
-            "password" => bcrypt($request->password)
+            "idade" => $request->idade,
         ]);
     }
+
     public function destroy($id){
        $user = User::find($id);
 
