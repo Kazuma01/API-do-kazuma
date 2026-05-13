@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from "../components/Home.vue";
-import Aperte2 from "../components/Aperte2.vue";
-import page from "../components/page.vue";
+import Home from "../pages/Home.vue";
+import VisualizarUsuarios from "../pages/VisualizarUsuarios.vue";
 
 const routes = [
   {
@@ -9,12 +8,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/Aperte2',
-    component: Aperte2
-  },
-  {
-    path: "/page",
-    component: page
+    path: '/verusuarios',
+    component: VisualizarUsuarios
   },
 ];
 

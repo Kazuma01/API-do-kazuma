@@ -3,10 +3,17 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PessoaController;
+use Illuminate\Support\Facades\DB;
+
 
 Route::get("/users", [UserController::class,"index"]);
 Route::post("/user", [UserController::class,"store"]);
 Route::delete("/users/{id}", [UserController::class,"destroy"]);
+
+Route::get("/pessoas/{id}", [PessoaController::class,"show"]);
+Route::get("/pessoas", [PessoaController::class,"index"]);
+Route::post("/pessoas", [PessoaController::class,"store"]);
 
 Route::get("/test", function(){
 //     DB::table('pessoas')->insert([
