@@ -1,9 +1,6 @@
 <template>
   <div id="app">
 
-    <div class="background-glow"></div>
-    <div class="background-glow second"></div>
-
     <main class="container">
 
       <section class="hero">
@@ -46,10 +43,11 @@
           <p>
             Adicione novos usuários ou dados rapidamente.
           </p>
-
-          <button class="button">
-            Entrar
-          </button>
+          <a href="/criarusuario">
+            <button class="button">
+              Entrar
+            </button>
+          </a>
         </div>
 
 
@@ -112,7 +110,7 @@
 
 body {
   background: radial-gradient(circle at top, #171726 0%, #09090f 60%);
-  min-height: 100vh;
+  min-height: 100%;
   font-family: var(--font);
   overflow-x: hidden;
 }
@@ -157,7 +155,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
 
   display: flex;
   flex-direction: column;

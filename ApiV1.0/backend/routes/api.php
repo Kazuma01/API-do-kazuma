@@ -16,10 +16,10 @@ Route::get("/pessoas", [PessoaController::class,"index"]);
 Route::post("/pessoas", [PessoaController::class,"store"]);
 
 Route::get("/test", function(){
-//     DB::table('pessoas')->insert([
-//     'name' => 'Kazuma',
-//     'idade' => 18
-// ]);
+    DB::table('pessoas')->insert([
+    'name' => 'kazuma',
+    'idade' => 32
+]);
     return "Inserido com Sucesso";
 });
 
