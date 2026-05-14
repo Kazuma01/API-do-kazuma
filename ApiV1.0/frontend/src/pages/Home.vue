@@ -1,3 +1,6 @@
+<!-- https://academy.especializati.com.br/aula/conectar-laravel-banco-de-dados -->
+ <!-- https://pt.vuejs.org/tutorial/#step-10 -->
+
 <template>
   <div id="app">
 
@@ -59,10 +62,11 @@
           <p>
             Atualize informações já existentes no sistema.
           </p>
-
-          <button class="button">
-            Entrar
-          </button>
+          <a href="/editarusuario">
+            <button class="button">
+              Entrar
+            </button>
+          </a>
         </div>
 
 
@@ -75,9 +79,11 @@
             Remova registros do banco de forma simples.
           </p>
 
-          <button class="button">
-            Entrar
-          </button>
+          <a href="/deletarusuario">  
+            <button class="button">
+              Entrar
+            </button>
+          </a>
         </div>
 
       </section>

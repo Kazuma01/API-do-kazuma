@@ -57,7 +57,8 @@
             </button>
 
           </form>
-          <p>{{ resposta }}</p>
+          <br>
+          <p class="resposta">{{ resposta }}</p>
 
         </div>
 
@@ -92,7 +93,7 @@ export default{
                     body: JSON.stringify(data)
                 });
                 const result = await response.json();
-                this.resposta = result.message;
+                this.resposta = result.message || "Usuário criado com sucesso!";
 
                 this.Name = "";
                 this.Idade = null;
@@ -250,7 +251,12 @@ body {
   transition: .3s;
 }
 
-/* Remove arrows from number input */
+.resposta {
+  color: green;
+  font-size: 16px;
+  text-align: center;
+}
+
 .input-group input[type="number"] {
   -moz-appearance: textfield;
 }
