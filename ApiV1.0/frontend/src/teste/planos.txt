@@ -1,0 +1,33 @@
+src/
+│
+├── assets/
+│   ├── styles/
+│   │   ├── base.css
+│   │   ├── reset.css
+│   │   ├── variables.css
+│   │   ├── typography.css
+│   │   ├── layout.css
+│   │   ├── components.css
+│   │   └── utilities.css
+│
+├── components/
+│   ├── ui/
+│   │   ├── Button.vue
+│   │   ├── Input.vue
+│   │   ├── Card.vue
+│   │   └── Modal.vue
+│   │
+│   └── layout/
+│       ├── Navbar.vue
+│       ├── Sidebar.vue
+│       └── Footer.vue
+│
+├── views/
+│   ├── HomeView.vue
+│   ├── UsersView.vue
+│   ├── CreateUserView.vue
+│   ├── EditUserView.vue
+│   └── DeleteUserView.vue
+│
+├── App.vue
+└── main.js

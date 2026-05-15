@@ -1,0 +1,104 @@
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* APP */
+#app {
+  min-height: 100vh;
+}
+
+/* CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: var(--space-5);
+}
+
+/* PAGE */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+
+  padding-block: var(--space-5);
+}
+
+/* HEADER */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: var(--text);
+}
+
+.page-description {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* SECTION */
+.section {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  padding: var(--space-5);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* CARD */
+.card {
+  background: var(--bg);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  padding: var(--space-4);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* FLEX HELPERS */
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-4);
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+}

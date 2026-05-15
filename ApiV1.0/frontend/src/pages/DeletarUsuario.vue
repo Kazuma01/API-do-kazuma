@@ -3,29 +3,31 @@
 
     <main class="container">
 
-      <!-- Top bar -->
+      <!-- TOP BAR -->
       <section class="top-bar">
-        <a href="/">
-          <button class="back-button">
-            ← Voltar
-          </button>
-        </a>
+
+        <router-link to="/">
+            <button class="back-button">
+              ← Voltar
+            </button>
+        </router-link>
+
       </section>
 
-      <!-- Hero -->
+      <!-- HERO -->
       <section class="hero">
 
         <span class="tag">
-          GERENCIAR USUÁRIOS
+          DELETAR USUÁRIO
         </span>
 
         <h1>
-          Lista de
-          <span>Usuários</span>
+          Remover
+          <span>Usuário</span>
         </h1>
 
         <p>
-          Visualize e remova usuários do sistema.
+          Remova usuários cadastrados do sistema.
         </p>
 
       </section>
@@ -33,25 +35,46 @@
       <!-- GRID -->
       <section class="grid">
 
-        <div class="card" v-for="user in users" :key="user.id">
+        <div
+          class="card"
+          v-for="user in users"
+          :key="user.id"
+        >
 
+          <!-- TOP -->
           <div class="card-top">
-            <span class="user-id">#{{ user.id }}</span>
+
+            <span class="user-id">
+              #{{ user.id }}
+            </span>
+
           </div>
 
+          <!-- CENTER -->
           <div class="card-center">
 
             <div class="avatar">
               {{ user.name.charAt(0) }}
             </div>
 
-            <h2>{{ user.name }}</h2>
+            <h2>
+              {{ user.name }}
+            </h2>
 
-            <p>{{ user.idade }} anos</p>
+            <p>
+              {{ user.idade }} anos
+            </p>
 
-            <button class="delete-btn" @click="deleteUser(user.id)">
-              Deletar
-            </button>
+            <div class="actions">
+
+              <button
+                class="btn btn-danger"
+                @click="deleteUser(user.id)"
+              >
+                Deletar Usuário
+              </button>
+
+            </div>
 
           </div>
 
@@ -66,72 +89,78 @@
 
 <script>
 export default {
+
   data() {
+
     return {
-      users: [],
+
+      users: []
+
     }
+
   },
 
   methods: {
 
     async fetchUsers() {
+
       try {
-        const res = await fetch("http://localhost:8000/api/pessoas")
 
-        if (!res.ok) throw new Error("Erro ao buscar usuários")
+        const response = await fetch(
+          "http://localhost:8000/api/pessoas"
+        )
 
-        this.users = await res.json()
+        const data = await response.json()
 
-      } catch (err) {
-        console.error(err)
+        this.users = data
+
+      } catch (error) {
+
+        console.log(error)
+
       }
+
     },
 
     async deleteUser(id) {
+
       try {
-        const res = await fetch(
+
+        const response = await fetch(
           `http://localhost:8000/api/pessoas/${id}`,
           {
             method: "DELETE"
           }
         )
 
-        if (!res.ok) throw new Error("Erro ao deletar")
+        if (!response.ok) {
 
+          throw new Error(
+            "Erro ao deletar usuário"
+          )
 
-        // remove do front sem recarregar
-        this.users = this.users.filter(u => u.id !== id)
+        }
 
-      } catch (err) {
-        console.error(err)
+        this.users =
+          this.users.filter(
+            user => user.id !== id
+          )
+
+      } catch (error) {
+
+        console.log(error)
+
       }
+
     }
+
   },
 
   mounted() {
+
     this.fetchUsers()
+
   }
+
 }
 </script>
-
-<style>
-.delete-btn {
-    margin-top: 15px;
-    padding: 10px 16px;
-    
-    border: 1px solid rgba(255, 80, 80, 0.3);
-  background: rgba(255, 80, 80, 0.1);
-  
-  color: #ff6b6b;
-
-  border-radius: 12px;
-  cursor: pointer;
-  
-  transition: .3s;
-}
-
-.delete-btn:hover {
-    background: rgba(255, 80, 80, 0.25);
-    transform: translateY(-3px);
-}
-</style>
