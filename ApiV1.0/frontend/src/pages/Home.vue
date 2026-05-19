@@ -32,7 +32,7 @@
           <div class="card-center">
 
             <div class="avatar">
-              📄
+              <img src="../assets/IMG/lista-de-usuarios32px.png" alt=" lista de usuários">
             </div>
 
             <h2>
@@ -63,7 +63,7 @@
           <div class="card-center">
 
             <div class="avatar">
-              ➕
+              <img src="../assets/IMG/adicionar-usuario.png" alt="adicionar usuário">
             </div>
 
             <h2>
@@ -95,7 +95,7 @@
           <div class="card-center">
 
             <div class="avatar">
-              ✏️
+              <img src="../assets/IMG/editar-usuario.png" alt="editar usuário">
             </div>
 
             <h2>
@@ -127,7 +127,7 @@
           <div class="card-center">
 
             <div class="avatar">
-              🗑️
+              <img src="../assets/IMG/remover-usuario.png" alt="deletar usuário">
             </div>
 
             <h2>
