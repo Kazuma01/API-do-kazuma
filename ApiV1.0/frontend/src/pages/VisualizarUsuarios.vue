@@ -105,7 +105,7 @@ export default {
       try {
 
         const res = await fetch(
-          "http://localhost:8000/api/pessoas"
+          "https://api-do-kazuma.onrender.com/api/pessoas"
         )
 
         if (!res.ok) {

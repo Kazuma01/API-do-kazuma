@@ -158,7 +158,7 @@ export default {
       try {
 
         const response = await fetch(
-          "http://localhost:8000/api/pessoas",
+          "https://api-do-kazuma.onrender.com/api/pessoas",
           {
             method: "POST",
             headers: {

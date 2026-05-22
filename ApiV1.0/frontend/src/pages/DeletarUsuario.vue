@@ -107,7 +107,7 @@ export default {
       try {
 
         const response = await fetch(
-          "http://localhost:8000/api/pessoas"
+          "https://api-do-kazuma.onrender.com/api/pessoas"
         )
 
         const data = await response.json()
@@ -127,7 +127,7 @@ export default {
       try {
 
         const response = await fetch(
-          `http://localhost:8000/api/pessoas/${id}`,
+          `https://api-do-kazuma.onrender.com/api/pessoas/${id}`,
           {
             method: "DELETE"
           }
