@@ -21,6 +21,6 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY ApiV1.0/backend /var/www/html/
+COPY backend/ /var/www/html/
 
 WORKDIR /var/www/html
