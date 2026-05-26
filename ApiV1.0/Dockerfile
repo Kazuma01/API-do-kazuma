@@ -15,4 +15,6 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 /var/www/html/bootstrap/cache
 RUN composer install --no-dev --optimize-autoloader
 RUN cp .env.example .env && php artisan key:generate
-RUN php artisan migrate --force
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
