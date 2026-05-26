@@ -77,7 +77,9 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
             'sslmode' => env('DB_SSLMODE', 'require'),
-            'options' => env('DB_OPTIONS', ''),
+            'options' => [
+            \PDO::PGSQL_ATTR_OPTIONS => 'endpoint=ep-divine-butterfly-apncecxd',
+            ],
         ],
 
         'sqlsrv' => [
